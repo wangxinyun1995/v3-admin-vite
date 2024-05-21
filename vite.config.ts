@@ -7,6 +7,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
 import svgLoader from "vite-svg-loader"
 import UnoCSS from "unocss/vite"
+// import { viteMockServe } from "vite-plugin-mock"
 
 /** 配置项文档：https://cn.vitejs.dev/config */
 export default ({ mode }: ConfigEnv): UserConfigExport => {
@@ -37,7 +38,6 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
         "/api/v1": {
           target: "https://mock.mengxuegu.com/mock/63218b5fb4c53348ed2bc212",
           ws: true,
-          /** 是否允许跨域 */
           changeOrigin: true
         }
       },
@@ -93,6 +93,10 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       }),
       /** UnoCSS */
       UnoCSS()
+      // viteMockServe({
+      //   mockPath: "mock",
+      //   enable: true
+      // })
     ],
     /** Vitest 单元测试配置：https://cn.vitest.dev/config */
     test: {
